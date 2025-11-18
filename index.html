@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SmartSortNet: Classifying Organic vs Inorganic Waste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    header {
+      background: #00529b;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin: 0.3rem 0;
+      font-size: 1.1rem;
+    }
+    nav {
+      background: white;
+      border-bottom: 1px solid #ccc;
+      padding: 0.7rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      margin-right: 1rem;
+      color: #00529b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 1.5rem;
+    }
+    section {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #00529b;
+      margin-top: 0;
+      border-bottom: 2px solid #e5e5e5;
+      padding-bottom: 0.3rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #e9e9e9;
+      color: #555;
+      margin-top: 2rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .code {
+      background: #eee;
+      font-family: monospace;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+    a.button {
+      display: inline-block;
+      margin: 0.4rem 0;
+      padding: 0.5rem 1rem;
+      background: #00529b;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    a.button:hover {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>SmartSortNet</h1>
+  <p>Classifying Organic vs Inorganic Waste with AlexNet</p>
+  <p>MAP 2192 – Florida Atlantic University</p>
+</header>
+
+<nav>
+  <a href="#overview">Overview</a>
+  <a href="#problem">Problem</a>
+  <a href="#dataset">Dataset</a>
+  <a href="#method">Method</a>
+  <a href="#experiments">Experiments</a>
+  <a href="#results">Results</a>
+  <a href="#future">Future Work</a>
+  <a href="#links">Links</a>
+</nav>
+
+<div class="container">
+
+  <section id="overview">
+    <h2>Project Overview</h2>
+    <p>
+      <strong>SmartSortNet</strong> is a deep learning project designed to classify waste into 
+      <strong>organic</strong> and <strong>inorganic</strong> categories using the AlexNet CNN architecture.
+      This project supports sustainability efforts by exploring AI-driven waste sorting solutions 
+      that could help reduce recycling contamination.
+    </p>
+  </section>
+
+  <section id="problem">
+    <h2>Problem & Motivation</h2>
+    <ul>
+      <li>Students often place items in the wrong bin on campus.</li>
+      <li>Incorrect sorting contaminates recycling streams.</li>
+      <li>Contamination leads to more waste ending up in landfills.</li>
+      <li>South Florida ecosystems suffer heavily from plastic and inorganic waste pollution.</li>
+    </ul>
+    <p>
+      SmartSortNet aims to demonstrate how machine learning can support proper waste sorting and
+      encourage sustainable habits across campus.
+    </p>
+  </section>
+
+  <section id="dataset">
+    <h2>Dataset</h2>
+    <p>The dataset contains two main waste categories:</p>
+    <ul>
+      <li><strong>Organic:</strong> fruit peels, food scraps, vegetables, plant material</li>
+      <li><strong>Inorganic:</strong> plastic bottles, cans, cardboard, packaging</li>
+    </ul>
+    <p>All images were resized to <span class="code">224×224</span> and normalized using ImageNet statistics.</p>
+  </section>
+
+  <section id="method">
+    <h2>Method: AlexNet Model</h2>
+    <p>The model uses a modified version of AlexNet:</p>
+    <ul>
+      <li>Pretrained weights on ImageNet</li>
+      <li>Final layer replaced with a <strong>2-class output</strong> (organic vs inorganic)</li>
+      <li>Training with Adam optimizer and cross-entropy loss</li>
+    </ul>
+  </section>
+
+  <section id="experiments">
+    <h2>Experiments</h2>
+    <p>Several experiments were conducted to study model performance:</p>
+    <ul>
+      <li>Batch size comparison: <span class="code">16</span> vs <span class="code">64</span></li>
+      <li>Learning rate tuning: <span class="code">0.001</span> vs <span class="code">0.0001</span></li>
+      <li>Data augmentation vs no augmentation</li>
+      <li>AlexNet vs ResNet-18 model comparison</li>
+    </ul>
+  </section>
+
+  <section id="results">
+    <h2>Results</h2>
+    <p>
+      Training plots, confusion matrices, accuracy comparisons, and experiment summaries will be 
+      added here once model training is completed in the Google Colab notebook.
+    </p>
+  </section>
+
+  <section id="future">
+    <h2>Future Work</h2>
+    <ul>
+      <li>Expand dataset to more waste categories</li>
+      <li>Deploy model to a mobile app or camera-based system</li>
+      <li>Develop “smart bins” that classify trash in real-time</li>
+      <li>Improve model accuracy using deeper architectures</li>
+    </ul>
+  </section>
+
+  <section id="links">
+    <h2>Project Links</h2>
+    <p>Replace the # with your real links when ready:</p>
+    <a class="button" href="#" target="_blank">Google Slides Presentation</a><br>
+    <a class="button" href="#" target="_blank">Google Colab Notebook</a><br>
+    <a class="button" href="#" target="_blank">Scientific Poster</a><br>
+    <a class="button" href="#" target="_blank">Presentation Video</a><br>
+    <a class="button" href="#" target="_blank">GitHub Repository</a><br>
+  </section>
+
+</div>
+
+<footer>
+  SmartSortNet · MAP 2192 · Florida Atlantic University
+</footer>
+
+</body>
+</html>
