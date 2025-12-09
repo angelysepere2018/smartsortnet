@@ -424,7 +424,7 @@
 
   <main class="container">
 
-    <!-- Problem & Motivation content -->
+    <!-- Problem & Motivation -->
     <section id="overview">
       <h2>
         <span class="emoji">🌿</span>
@@ -502,4 +502,193 @@
       </div>
     </section>
 
-    <!-- Technical App
+    <!-- Technical Approach -->
+    <section id="method">
+      <h2>
+        <span class="emoji">🧠</span>
+        <span class="leaf"><span class="leaf-icon"></span> Technical Approach: AlexNet-Based Classifier</span>
+      </h2>
+      <div class="grid-2">
+        <div>
+          <h3>Model Architecture</h3>
+          <ul>
+            <li>Base network: <strong>AlexNet</strong> pretrained on ImageNet.</li>
+            <li>Convolutional layers extract low-level (edges, colors) and higher-level shapes.</li>
+            <li>Max-pooling layers gradually reduce spatial size.</li>
+            <li>Fully connected layers interpret features for classification.</li>
+            <li>Final layer replaced with a <strong>2-unit output</strong> (Organic vs Inorganic).</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Training Setup</h3>
+          <ul>
+            <li>Framework: PyTorch.</li>
+            <li>Loss: cross-entropy for two-class classification.</li>
+            <li>Optimizer: Adam with different learning rates tested.</li>
+            <li>Metrics tracked per epoch: training and validation accuracy and loss.</li>
+            <li>Logging: Weights &amp; Biases (wandb) for runs, curves, and confusion matrices.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiments -->
+    <section id="experiments">
+      <h2>
+        <span class="emoji">🔬</span>
+        <span class="leaf"><span class="leaf-icon"></span> Experiments</span>
+      </h2>
+      <p class="muted">
+        These experiments explore how hyperparameters and architecture choices affect the
+        model’s ability to recognize organic vs inorganic waste, and ultimately, to protect
+        recycling streams and the environment.
+      </p>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <div class="exp-title">Batch Size</div>
+          <p>
+            Compare batch sizes <span class="code">16</span> and <span class="code">64</span> to see
+            how training stability and final accuracy change.
+          </p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-title">Learning Rate</div>
+          <p>
+            Test learning rates <span class="code">0.001</span> vs <span class="code">0.0001</span>
+            to balance fast learning with stable convergence.
+          </p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-title">Data Augmentation</div>
+          <p>
+            Train with and without augmentation (random flips, rotations, crops) to measure
+            improvements in generalization to unseen waste images.
+          </p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-title">Model Comparison</div>
+          <p>
+            Compare <strong>AlexNet</strong> with a second CNN such as
+            <strong>ResNet-18</strong> to understand which architecture better separates
+            organic vs inorganic waste.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visualizations -->
+    <section id="visuals">
+      <h2>
+        <span class="emoji">🖼️</span>
+        <span class="leaf"><span class="leaf-icon"></span> Visualizations</span>
+      </h2>
+      <p class="muted">
+        Screenshots below are exported from Weights &amp; Biases and Colab to show how the
+        models trained and which configuration performed best.
+      </p>
+      <div class="plot-grid">
+        <div class="plot-card">
+          <img src="images/wandb_valid_acc.png" alt="Training and validation accuracy curves">
+          <div class="plot-caption">
+            Accuracy curves for multiple runs, showing validation accuracy staying above 90%
+            for the best AlexNet and ResNet-18 configurations.
+          </div>
+        </div>
+        <div class="plot-card">
+          <img src="images/wandb_train_loss.png" alt="Training and validation loss curves">
+          <div class="plot-caption">
+            Training and validation loss steadily decrease for well-tuned runs, while the
+            high learning rate run has higher, less stable loss.
+          </div>
+        </div>
+        <div class="plot-card">
+          <img src="images/wandb_best_val_acc.png" alt="Bar chart of best validation accuracy for each run">
+          <div class="plot-caption">
+            Bar chart of <code>best_val_acc</code> for each experiment. The run
+            <span class="code">alexnet_bs32_lr1e-4_noaug</span> achieves the highest validation
+            accuracy (about 95%).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results">
+      <h2>
+        <span class="emoji">📊</span>
+        <span class="leaf"><span class="leaf-icon"></span> Results</span>
+      </h2>
+      <p>
+        Across all experiments, the model consistently reached high performance on the
+        organic vs inorganic classification task. The best run,
+        <span class="code">alexnet_bs32_lr1e-4_noaug</span>, achieved a validation accuracy
+        of roughly <strong>95%</strong>. Several other runs (including ResNet-18 with
+        similar settings) clustered around <strong>93–94%</strong>.
+      </p>
+      <ul>
+        <li>
+          <strong>Best batch size:</strong> a batch size of <strong>32</strong> gave the
+          strongest overall performance and stable learning.
+        </li>
+        <li>
+          <strong>Best learning rate:</strong> <span class="code">1e-4</span> worked well.
+          The higher learning rate <span class="code">1e-3</span> led to much poorer
+          performance (validation accuracy around 0.6), showing that it was too aggressive.
+        </li>
+        <li>
+          <strong>Data augmentation:</strong> mild augmentation slightly changed validation
+          accuracy but did not clearly beat the best non-augmented run. However, it can still
+          help with robustness to new images.
+        </li>
+        <li>
+          <strong>Model comparison:</strong> AlexNet with tuned hyperparameters slightly
+          outperformed ResNet-18 on this dataset, but both architectures reached strong
+          validation accuracy above 90%.
+        </li>
+      </ul>
+      <p class="muted">
+        These results suggest that careful tuning of learning rate and batch size matters
+        more than changing architectures for this small, two-class waste dataset.
+      </p>
+    </section>
+
+    <!-- Takeaways & Future -->
+    <section id="takeaways">
+      <h2>
+        <span class="emoji">🌱</span>
+        <span class="leaf"><span class="leaf-icon"></span> Key Takeaways &amp; Future Work</span>
+      </h2>
+      <ul>
+        <li>SmartSortNet shows that CNNs can meaningfully separate organic and inorganic waste from images.</li>
+        <li>Even a simple two-class system can support better everyday recycling decisions on campus.</li>
+        <li>Performance is strongly influenced by data quality, class balance, and augmentation choices.</li>
+        <li>Future directions include more classes (compost, landfill, mixed recycling types) and real-world testing.</li>
+        <li>Long-term vision: deploy the model in smart bins or mobile apps that help keep campus greener.</li>
+      </ul>
+    </section>
+
+    <!-- Links -->
+    <section id="links">
+      <h2>
+        <span class="emoji">🔗</span>
+        <span class="leaf"><span class="leaf-icon"></span> Project Links</span>
+      </h2>
+      <p class="muted">
+        Replace <span class="code">#</span> with your actual URLs when each deliverable is ready.
+      </p>
+      <div class="quick-links">
+        <a href="#" target="_blank" class="primary">Google Slides Presentation</a>
+        <a href="#" target="_blank">Google Colab Notebook</a>
+        <a href="#" target="_blank">Scientific Poster</a>
+        <a href="#" target="_blank">Presentation Video</a>
+        <a href="#" target="_blank">GitHub Repository</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    SmartSortNet · MAP 2192 · Florida Atlantic University
+  </footer>
+</body>
+</html>
