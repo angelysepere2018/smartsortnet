@@ -85,11 +85,7 @@
       margin: 0 auto;
       padding: 1.4rem 1.6rem 1.5rem;
       border-radius: 24px;
-      background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.52),
-        rgba(15, 23, 42, 0.70)
-      );
+      background: rgba(15, 23, 42, 0.55);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
       border: 1px solid rgba(255, 255, 255, 0.18);
       text-align: center;
@@ -118,16 +114,11 @@
     }
 
     header h1 {
-      margin: 0.25rem 0 0.35rem;
-      font-size: 2.6rem;
-      letter-spacing: 0.04em;
-      font-weight: 600;
+      margin: 0.3rem 0 0.4rem;
+      font-size: 2.2rem;
+      letter-spacing: 0.01em;
+      font-weight: 500;
       color: #f9fafb;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 0.98rem;
     }
 
     .hero-sub {
@@ -210,43 +201,9 @@
       margin-bottom: 1rem;
       color: var(--blue);
       font-size: 1.35rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-    }
-
-    h3 {
-      margin-top: 0.2rem;
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-      color: #111827;
-    }
-
-    p {
-      margin-top: 0.25rem;
-      margin-bottom: 0.7rem;
-    }
-
-    ul {
-      margin-top: 0.15rem;
-      margin-bottom: 0.6rem;
-      padding-left: 1.1rem;
-    }
-
-    .muted { font-size: 0.9rem; color: var(--muted); }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-
-    .code {
-      font-family: monospace;
-      background: #f3f4f6;
-      padding: 2px 6px;
-      border-radius: 5px;
-      font-size: 0.82rem;
     }
 
     .leaf {
@@ -296,33 +253,6 @@
       margin-top: 0.4rem;
     }
 
-    /* ========= LINKS SECTION ========= */
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.6rem;
-      margin-top: 0.8rem;
-    }
-
-    .links-grid a {
-      display: inline-block;
-      text-decoration: none;
-      text-align: center;
-      padding: 0.5rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: #f9fafb;
-      color: var(--blue);
-      font-size: 0.9rem;
-      transition: 0.15s ease;
-    }
-
-    .links-grid a:hover {
-      background: var(--blue-soft);
-      border-color: #bfdbfe;
-    }
-
     footer {
       text-align: center;
       color: var(--muted);
@@ -334,263 +264,218 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="header-card">
-        <div class="pill">
-          <span class="pill-dot"></span>
-          MAP 2192 • Florida Atlantic University
-        </div>
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="header-inner">
+    <div class="header-card">
+      <div class="pill">
+        <span class="pill-dot"></span>
+        MAP 2192 • Florida Atlantic University
+      </div>
 
-        <h1>SmartSortNet</hh1>
+      <h1>SmartSortNet</h1>
 
-        <p><strong>Organic vs Inorganic Waste Classification with AlexNet</strong></p>
+      <p><strong>Organic vs Inorganic Waste Classification with AlexNet</strong></p>
 
-        <p class="hero-sub">
-          A deep-learning sustainability project designed to help reduce waste
-          contamination and support cleaner recycling streams on campus.
+      <p class="hero-sub">
+        A deep-learning sustainability project designed to help reduce waste
+        contamination and support cleaner recycling streams on campus.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-wrap">
+    <div class="nav-inner">
+      <div class="nav-pill">
+        <a href="#overview">Overview</a>
+        <a href="#problem">Problem</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#method">Technical</a>
+        <a href="#experiments">Experiments</a>
+        <a href="#visuals">Visualizations</a>
+        <a href="#results">Results</a>
+        <a href="#takeaways">Takeaways</a>
+        <a href="#links">Links</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="container">
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Project Overview</span></h2>
+    <p>
+      <strong>SmartSortNet</strong> is a convolutional neural network (CNN) that classifies
+      waste as <strong>Organic</strong> or <strong>Inorganic</strong>. This project demonstrates
+      how AI can support recycling accuracy and reduce contamination on campus.
+    </p>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Problem & Motivation</span></h2>
+    <div class="grid-2">
+      <div>
+        <h3>Why This Matters</h3>
+        <ul>
+          <li>Recycling contamination leads to entire bins being discarded.</li>
+          <li>Organic waste mixed with plastics causes spoilage.</li>
+          <li>South Florida ecosystems are sensitive to plastic pollution.</li>
+          <li>Students often only have seconds to choose the correct bin.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Project Goal</h3>
+        <p>
+          SmartSortNet provides a foundation for real-time image-based waste sorting,
+          enabling future smart bins or mobile tools to guide students.
         </p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- NAV -->
-
-  <nav>
-    <div class="nav-wrap">
-      <div class="nav-inner">
-        <div class="nav-pill">
-          <a href="#overview">Overview</a>
-          <a href="#problem">Problem</a>
-          <a href="#dataset">Dataset</a>
-          <a href="#method">Technical</a>
-          <a href="#experiments">Experiments</a>
-          <a href="#visuals">Visualizations</a>
-          <a href="#results">Results</a>
-          <a href="#takeaways">Takeaways</a>
-          <a href="#links">Links</a>
-        </div>
+  <!-- DATASET -->
+  <section id="dataset">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Dataset</span></h2>
+    <div class="grid-2">
+      <div>
+        <h3>Classes</h3>
+        <ul>
+          <li><strong>Organic:</strong> peels, leftover food, plant matter.</li>
+          <li><strong>Inorganic:</strong> bottles, cans, jars, cardboard, wrappers.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Preprocessing</h3>
+        <ul>
+          <li>Resized to <span class="code">224×224</span>.</li>
+          <li>RGB normalized (ImageNet stats).</li>
+          <li>Train / validation / test split.</li>
+          <li>Optional augmentation.</li>
+        </ul>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <!-- MAIN CONTENT -->
-  <main class="container">
-
-    <!-- OVERVIEW -->
-    <section id="overview">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Project Overview</span>
-      </h2>
-      <p>
-        <strong>SmartSortNet</strong> is a convolutional neural network (CNN) project that
-        classifies waste into two classes: <strong>Organic</strong> and <strong>Inorganic</strong>.
-        It explores how deep learning can support cleaner recycling streams and better
-        sustainability habits on campus.
-      </p>
-    </section>
-
-    <!-- PROBLEM -->
-    <section id="problem">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Problem & Motivation</span>
-      </h2>
-      <div class="grid-2">
-        <div>
-          <h3>Why This Matters</h3>
-          <ul>
-            <li>Recycling contamination leads to entire bins being landfilled.</li>
-            <li>Organic waste mixed with plastics causes spoilage.</li>
-            <li>South Florida ecosystems are sensitive to plastic pollution.</li>
-            <li>Students often have seconds to choose the correct bin.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Project Goal</h3>
-          <p>
-            SmartSortNet aims to provide a foundation for real-time waste identification,
-            forming the basis for future camera-enabled smart bins or mobile sustainability tools.
-          </p>
-        </div>
+  <!-- TECHNICAL -->
+  <section id="method">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Technical Approach</span></h2>
+    <div class="grid-2">
+      <div>
+        <h3>Model Architecture</h3>
+        <ul>
+          <li>AlexNet pretrained on ImageNet.</li>
+          <li>Convolutional + max pooling layers extract features.</li>
+          <li>Fully connected layers classify the waste type.</li>
+          <li>Final layer modified to 2 outputs.</li>
+        </ul>
       </div>
-    </section>
-
-    <!-- DATASET -->
-    <section id="dataset">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Dataset</span>
-      </h2>
-      <div class="grid-2">
-        <div>
-          <h3>Classes</h3>
-          <ul>
-            <li><strong>Organic:</strong> fruit/vegetable peels, leftover food, plant material.</li>
-            <li><strong>Inorganic:</strong> plastic bottles, cans, cardboard, wrappers.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Preprocessing</h3>
-          <ul>
-            <li>Images resized to <span class="code">224 × 224</span> pixels.</li>
-            <li>Normalized with ImageNet mean and std.</li>
-            <li>Split into train, validation, and test sets.</li>
-            <li>Augmented with flips, rotations, and crops in some runs.</li>
-          </ul>
-        </div>
+      <div>
+        <h3>Training Setup</h3>
+        <ul>
+          <li>PyTorch framework.</li>
+          <li>Adam optimizer.</li>
+          <li>Cross-entropy loss.</li>
+          <li>Tracked accuracy/loss each epoch.</li>
+          <li>Logged in Weights &amp; Biases.</li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TECHNICAL -->
-    <section id="method">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Technical Approach</span>
-      </h2>
-      <div class="grid-2">
-        <div>
-          <h3>Model Architecture</h3>
-          <ul>
-            <li>Base model: <strong>AlexNet</strong> pretrained on ImageNet.</li>
-            <li>Convolutional layers extract edges, textures, shapes.</li>
-            <li>Max-pooling layers reduce spatial dimensions.</li>
-            <li>Fully connected layers perform final classification.</li>
-            <li>Final layer replaced with <strong>2 outputs</strong> (Organic vs Inorganic).</li>
-          </ul>
-        </div>
+  <!-- EXPERIMENTS -->
+  <section id="experiments">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Experiments</span></h2>
+    <p class="muted">
+      Experiments tested how hyperparameters and models affect accuracy.
+    </p>
 
-        <div>
-          <h3>Training Setup</h3>
-          <ul>
-            <li>PyTorch framework.</li>
-            <li>Cross-entropy loss.</li>
-            <li>Adam optimizer with multiple learning rates tested.</li>
-            <li>Logged accuracy/loss each epoch.</li>
-            <li>Tracked and visualized with Weights &amp; Biases.</li>
-          </ul>
-        </div>
+    <div class="grid-2">
+      <div><h3>Batch Size</h3><p>Compared 16 vs 64.</p></div>
+      <div><h3>Learning Rate</h3><p>Compared 1e-4 vs 1e-3.</p></div>
+      <div><h3>Augmentation</h3><p>Rotations/flips/crops enabled.</p></div>
+      <div><h3>Model Comparison</h3><p>AlexNet vs ResNet-18.</p></div>
+    </div>
+  </section>
+
+  <!-- VISUALIZATIONS -->
+  <section id="visuals">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Visualizations</span></h2>
+    <p class="muted">
+      Upload your W&B screenshots into <strong>images/</strong> and they will appear here.
+    </p>
+
+    <div class="plot-grid">
+      <div class="plot-card">
+        <img src="images/wandb_valid_acc.png" alt="Validation accuracy chart">
+        <div class="plot-caption">Validation accuracy across runs.</div>
       </div>
-    </section>
 
-    <!-- EXPERIMENTS -->
-    <section id="experiments">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Experiments</span>
-      </h2>
-      <p class="muted">
-        Controlled experiments tested how hyperparameters and architecture changes affect performance.
-      </p>
-      <div class="grid-2">
-        <div>
-          <h3>Batch Size</h3>
-          <p>Compared <span class="code">16</span> vs <span class="code">64</span>.</p>
-        </div>
-
-        <div>
-          <h3>Learning Rate</h3>
-          <p>Tested <span class="code">1e-4</span> vs <span class="code">1e-3</span>.</p>
-        </div>
-
-        <div>
-          <h3>Data Augmentation</h3>
-          <p>Used flips/rotations/crops to improve generalization.</p>
-        </div>
-
-        <div>
-          <h3>Model Comparison</h3>
-          <p>Compared <strong>AlexNet</strong> and <strong>ResNet-18</strong>.</p>
-        </div>
+      <div class="plot-card">
+        <img src="images/wandb_train_loss.png" alt="Training loss chart">
+        <div class="plot-caption">Training and validation loss.</div>
       </div>
-    </section>
 
-    <!-- VISUALIZATIONS -->
-    <section id="visuals">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Visualizations</span>
-      </h2>
-      <p class="muted">
-        Plots exported from my Weights &amp; Biases dashboard:
-      </p>
-
-      <div class="plot-grid">
-        <div class="plot-card">
-          <img src="images/wandb_valid_acc.png">
-          <div class="plot-caption">
-            Validation accuracy curves for multiple runs.
-          </div>
-        </div>
-
-        <div class="plot-card">
-          <img src="images/wandb_train_loss.png">
-          <div class="plot-caption">
-            Training & validation loss curves.
-          </div>
-        </div>
-
-        <div class="plot-card">
-          <img src="images/wandb_best_val_acc.png">
-          <div class="plot-caption">
-            Best validation accuracy per run (AlexNet bs32 lr1e-4 ≈ 95%).
-          </div>
-        </div>
+      <div class="plot-card">
+        <img src="images/wandb_best_val_acc.png" alt="Best validation accuracies">
+        <div class="plot-caption">Best accuracy per experiment.</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- RESULTS -->
-    <section id="results">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Results</span>
-      </h2>
+  <!-- RESULTS -->
+  <section id="results">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Results</span></h2>
+    <p>
+      The best run <span class="code">alexnet_bs32_lr1e-4_noaug</span> achieved around
+      <strong>95%</strong> validation accuracy. Other runs, including ResNet-18, reached
+      <strong>93–94%</strong>.
+    </p>
 
-      <p>
-        The best-performing configuration,
-        <span class="code">alexnet_bs32_lr1e-4_noaug</span>, achieved a validation accuracy of
-        approximately <strong>95%</strong>. Other AlexNet and ResNet-18 configurations reached
-        around <strong>93–94%</strong>.
-      </p>
+    <ul>
+      <li>Batch size 32 gave stable performance.</li>
+      <li>Learning rate 1e-4 outperformed 1e-3.</li>
+      <li>Augmentation improved generalization.</li>
+      <li>AlexNet slightly beat ResNet18.</li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Batch size 32 was most consistent.</li>
-        <li>Learning rate <span class="code">1e-4</span> gave stable convergence.</li>
-        <li>Learning rate <span class="code">1e-3</span> was too high (poor accuracy).</li>
-        <li>Augmentation slightly helped robustness.</li>
-        <li>AlexNet slightly outperformed ResNet-18 on this dataset.</li>
-      </ul>
-    </section>
+  <!-- TAKEAWAYS -->
+  <section id="takeaways">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Takeaways & Future Work</span></h2>
+    <ul>
+      <li>CNNs can effectively sort organic vs inorganic waste.</li>
+      <li>Hyperparameters greatly affect accuracy.</li>
+      <li>Future: compost, landfill, recycling subclasses.</li>
+      <li>Deploy in smart bins or a mobile app.</li>
+    </ul>
+  </section>
 
-    <!-- TAKEAWAYS -->
-    <section id="takeaways">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Takeaways & Future Work</span>
-      </h2>
-      <ul>
-        <li>CNNs can effectively distinguish organic vs inorganic waste.</li>
-        <li>Hyperparameters strongly shape performance.</li>
-        <li>Future work: add compost, landfill, recycling subclasses.</li>
-        <li>Long-term vision: deploy in smart bins or a mobile sorting assistant.</li>
-      </ul>
-    </section>
+  <!-- LINKS -->
+  <section id="links">
+    <h2><span class="leaf"><span class="leaf-icon"></span> Project Links</span></h2>
+    <p class="muted">Replace # with your real URLs.</p>
 
-    <!-- LINKS -->
-    <section id="links">
-      <h2>
-        <span class="leaf"><span class="leaf-icon"></span> Project Links</span>
-      </h2>
-      <p class="muted">Replace # with your real URLs.</p>
+    <div class="links-grid">
+      <a href="#">Google Slides</a>
+      <a href="#">Colab Notebook</a>
+      <a href="#">Poster</a>
+      <a href="#">Video</a>
+      <a href="#">GitHub Repo</a>
+    </div>
+  </section>
 
-      <div class="links-grid">
-        <a href="#">Google Slides</a>
-        <a href="#">Colab Notebook</a>
-        <a href="#">Poster</a>
-        <a href="#">Video</a>
-        <a href="#">GitHub Repo</a>
-      </div>
-    </section>
+</main>
 
-  </main>
-
-  <footer>
-    SmartSortNet • MAP 2192 • Florida Atlantic University
-  </footer>
+<footer>
+  SmartSortNet • MAP 2192 • Florida Atlantic University
+</footer>
 
 </body>
 </html>
